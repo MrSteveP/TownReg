@@ -36,14 +36,16 @@ namespace TownReg.Models
         public string LastName { get; set; }
 
         [Display(Name = "Date Of Birth")]
-        public DateTime DateOfBirth { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
+        public DateTime? DateOfBirth { get; set; }
 
         [Display(Name = "Place Of Birth")]
         [MaxLength(50)]
         public string PlaceOfBirth { get; set; }
 
         [Display(Name = "Date Of Death")]
-        public DateTime DateOfDeath { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
+        public DateTime? DateOfDeath { get; set; }
 
         [Display(Name = "Place Of Death")]
         [MaxLength(50)]
@@ -63,14 +65,14 @@ namespace TownReg.Models
 
         [Display(Name = "Mother")]
         [ForeignKey("MotherId")]
-        public Person Mother { get; set; }
+        public Person? Mother { get; set; }
 
         [Display(Name = "Father ID")]
         public int? FatherId { get; set; }
 
         [Display(Name = "Father")]
         [ForeignKey("FatherId")]
-        public Person Father { get; set; }
+        public Person? Father { get; set; }
     }
 
     public class PersonDocuments

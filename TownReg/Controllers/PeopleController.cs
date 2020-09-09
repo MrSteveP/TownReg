@@ -67,8 +67,8 @@ namespace TownReg.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FatherId"] = new SelectList(_context.Person, "Id", "LastName" + ", " + "FirstName", person.FatherId);
-            ViewData["MotherId"] = new SelectList(_context.Person, "Id", "LastName" + ", " + "FirstName", person.MotherId);
+            ViewData["FatherId"] = new SelectList(_context.Person, "Id", "LastName", person.FatherId);
+            ViewData["MotherId"] = new SelectList(_context.Person, "Id", "LastName", person.MotherId);
             return View(person);
         }
 
@@ -85,8 +85,8 @@ namespace TownReg.Controllers
             {
                 return NotFound();
             }
-            ViewData["FatherId"] = new SelectList(_context.Person, "Id", "LastName" + ", " + "FirstName", person.FatherId);
-            ViewData["MotherId"] = new SelectList(_context.Person, "Id", "LastName" + ", " + "FirstName", person.MotherId);
+            ViewData["FatherId"] = new SelectList(_context.Person, "Id", "LastName", person.FatherId);
+            ViewData["MotherId"] = new SelectList(_context.Person, "Id", "LastName", person.MotherId);
             return View(person);
         }
 
@@ -122,8 +122,8 @@ namespace TownReg.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FatherId"] = new SelectList(_context.Person, "Id", "LastName" + ", " + "FirstName", person.FatherId);
-            ViewData["MotherId"] = new SelectList(_context.Person, "Id", "LastName" + ", " + "FirstName", person.MotherId);
+            ViewData["FatherId"] = new SelectList(_context.Person, "Id", "LastName", person.FatherId);
+            ViewData["MotherId"] = new SelectList(_context.Person, "Id", "LastName", person.MotherId);
             return View(person);
         }
 

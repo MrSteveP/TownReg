@@ -62,16 +62,18 @@
                 <select asp-for="Status" class="form-control"></select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
+            <!--
             <div class="form-group">
-                <label asp-for="MotherId" class="control-label"></label>
-                <select asp-for="MotherId" class="form-control" asp-items="ViewBag.MotherId"></select>
+                <label asp-for="MotherId" class="control-label">Mother</label>
+                <select asp-for="MotherId" class="form-control" asp-items="(SelectList)@ViewData["MotherID"]"></select>
                 <span asp-validation-for="MotherId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FatherId" class="control-label"></label>
-                <select asp-for="FatherId" class="form-control" asp-items="ViewBag.FatherId"></select>
+                <label asp-for="FatherId" class="control-label">Father</label>
+                <select asp-for="FatherId" class="form-control" asp-items="(SelectList)@ViewData["FatherID"]"></select>
                 <span asp-validation-for="FatherId" class="text-danger"></span>
             </div>
+                -->
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

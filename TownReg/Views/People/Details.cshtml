@@ -5,11 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
-
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="float-left">Details</h1>
+        <h4 class="float-right mt-2">Person</h4>
+    </div>
+</div>
+<hr />
 <div>
-    <h4>Person</h4>
-    <hr />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FirstName)

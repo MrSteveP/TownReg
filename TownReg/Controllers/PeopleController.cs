@@ -49,8 +49,8 @@ namespace TownReg.Controllers
         // GET: People/Create
         public IActionResult Create()
         {
-            ViewData["FatherId"] = new SelectList(_context.Person, "Id", "LastName" + ", " + "FirstName");
-            ViewData["MotherId"] = new SelectList(_context.Person, "Id", "LastName" + ", " + "FirstName");
+            ViewData["FatherId"] = new SelectList(_context.Person.OrderBy(x => x.FirstName).OrderBy(x => x.LastName), "Id", "ReverseName");
+            ViewData["MotherId"] = new SelectList(_context.Person.OrderBy(x => x.FirstName).OrderBy(x => x.LastName), "Id", "ReverseName");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace TownReg.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FatherId"] = new SelectList(_context.Person, "Id", "LastName", person.FatherId);
-            ViewData["MotherId"] = new SelectList(_context.Person, "Id", "LastName", person.MotherId);
+            ViewData["FatherId"] = new SelectList(_context.Person.OrderBy(x => x.FirstName).OrderBy(x => x.LastName), "Id", "FullName", person.FatherId);
+            ViewData["MotherId"] = new SelectList(_context.Person.OrderBy(x => x.FirstName).OrderBy(x => x.LastName), "Id", "FullName", person.MotherId);
             return View(person);
         }
 
@@ -85,8 +85,8 @@ namespace TownReg.Controllers
             {
                 return NotFound();
             }
-            ViewData["FatherId"] = new SelectList(_context.Person, "Id", "LastName", person.FatherId);
-            ViewData["MotherId"] = new SelectList(_context.Person, "Id", "LastName", person.MotherId);
+            ViewData["FatherId"] = new SelectList(_context.Person.OrderBy(x => x.FirstName).OrderBy(x => x.LastName), "Id", "ReverseName", person.FatherId);
+            ViewData["MotherId"] = new SelectList(_context.Person.OrderBy(x => x.FirstName).OrderBy(x => x.LastName), "Id", "ReverseName", person.MotherId);
             return View(person);
         }
 
@@ -122,8 +122,8 @@ namespace TownReg.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FatherId"] = new SelectList(_context.Person, "Id", "LastName", person.FatherId);
-            ViewData["MotherId"] = new SelectList(_context.Person, "Id", "LastName", person.MotherId);
+            ViewData["FatherId"] = new SelectList(_context.Person.OrderBy(x => x.FirstName).OrderBy(x => x.LastName), "Id", "ReverseName", person.FatherId);
+            ViewData["MotherId"] = new SelectList(_context.Person.OrderBy(x => x.FirstName).OrderBy(x => x.LastName), "Id", "ReverseName", person.MotherId);
             return View(person);
         }
 

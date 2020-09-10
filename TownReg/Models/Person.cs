@@ -35,6 +35,12 @@ namespace TownReg.Models
         [MaxLength(50)]
         public string LastName { get; set; }
 
+        [NotMapped]
+        public string FullName => $"{FirstName} {LastName}";
+
+        [NotMapped]
+        public string ReverseName => $"{LastName}, {FirstName}";
+
         [Display(Name = "Date Of Birth")]
         [DisplayFormat(DataFormatString = "{0:d}")]
         public DateTime? DateOfBirth { get; set; }
@@ -52,7 +58,6 @@ namespace TownReg.Models
         public string PlaceOfDeath { get; set; }
 
         [Display(Name = "Job Title")]
-        [Required]
         [MaxLength(128)]
         public string JobTitle { get; set; }
 
@@ -65,14 +70,14 @@ namespace TownReg.Models
 
         [Display(Name = "Mother")]
         [ForeignKey("MotherId")]
-        public Person? Mother { get; set; }
+        public Person Mother { get; set; }
 
         [Display(Name = "Father ID")]
         public int? FatherId { get; set; }
 
         [Display(Name = "Father")]
         [ForeignKey("FatherId")]
-        public Person? Father { get; set; }
+        public Person Father { get; set; }
     }
 
     public class PersonDocuments

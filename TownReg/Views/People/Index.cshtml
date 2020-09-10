@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<TownReg.Models.Person>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "People";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="float-left">Index</h1>
+<h1 class="float-left">People</h1>
 <p class="float-right mt-3">
     <a asp-action="Create">Create New</a>
 </p>
@@ -28,7 +28,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.OrderBy(p => p.FirstName).OrderBy(p => p.LastName)) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
